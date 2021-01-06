@@ -2,7 +2,6 @@ const { botAvatar } = require('../config.json'); // Load the prefix and token in
 const { playlist } = require('./playlistStruct.js');
 
 
-// Removes user from the grog party
 module.exports = {
     name: 'playlist',
     description: 'Shows info about songs in the playlist',
@@ -19,8 +18,8 @@ module.exports = {
                     "text": "Bot made by Joe Bevan",
                 },
                 "author": {
-                    "name": "Grog Bot",
-                    "url": "https://github.com/Joe-Bevan/Discord-ChickenBot",
+                    "name": "Discord-js-Bot",
+                    "url": "https://github.com/Joe-Bevan/Discord-js-bot",
                     "icon_url": botAvatar
                 },
                 "fields": [

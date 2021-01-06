@@ -28,6 +28,7 @@ client.on('ready', () => {
 // When the bot detects a message
 client.on('message', async msg => {
 
+    if (!msg.content.startsWith(prefix)) return; // Invalid prefix supplied
     if (!msg.guild) return; // Don't handle msg DM's
 
     // Commands parsing / filtering (All commands are forced into lowercase)
@@ -35,9 +36,6 @@ client.on('message', async msg => {
     const command = args.shift().toLowerCase();
 
 
-    //            -----------------------
-    //            | COMMANDS START HERE |
-    //            -----------------------
     if (!client.commands.has(command)) return; // If we dont have that command
 
     try {

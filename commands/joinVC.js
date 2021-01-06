@@ -1,5 +1,3 @@
-//const ytdl = require("ytdl-core");
-
 module.exports = {
     name: 'join',
     description: 'Gets the bot to join the voice chat!',
