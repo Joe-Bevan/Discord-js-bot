@@ -3,7 +3,24 @@
 const fs = require('fs'); // Node.js native File stream (not provided by javascript)
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { prefix, token } = require('./config.json'); // Load the prefix and token in from a external file
+var prefix;
+var token;
+
+if (fs.existsSync('config.json')) {
+    var { prefix, token } = require('./config.json'); // Load the prefix and token in from a external file
+} else {
+    console.log(`${Timestamp()} Config file not found... creating one with default parameters.`);
+    var data = {
+        "prefix": ".",
+        "token": "",
+        "color": "0xF5A623",
+        "botAvatar": "https://miro.medium.com/max/962/1*I9KrlBSL9cZmpQU3T2nq-A.jpeg",
+        "timeTillAutoDisconnect": 60000
+    };
+    fs.writeFileSync('./config.json', JSON.stringify(data, null, 2));
+    return;
+}
+
 
 
 client.commands = new Discord.Collection();
@@ -14,8 +31,12 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-// Log the bot onto discords servers
-client.login(token);
+// Attempt to log the bot onto discords servers
+if (token != "")
+    client.login(token);
+else {
+    console.log(`${Timestamp()} No token was provided! Make sure you set it in the 'config.json' file`);
+}
 
 
 // When the bot is ready
