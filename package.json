@@ -1,7 +1,7 @@
 {
-  "name": "discord-grogbot",
+  "name": "discord-js-bot",
   "version": "1.0.0",
-  "description": "Simple Discord bot created for 'Grog nights'.",
+  "description": "A simple discord bot",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,8 +12,6 @@
     "@discordjs/opus": "^0.3.3",
     "discord.js": "^12.5.1",
     "ffmpeg-static": "^4.2.7",
-    "google-tts-api": "0.0.4",
-    "minecraft-server-util": "^1.4.3",
     "ytdl-core": "^4.4.0"
   }
 }
